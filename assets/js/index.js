@@ -2,6 +2,21 @@
 $(function() {
     getUserInfo()
 
+    // 退出
+    var layer = layui.layer
+    $('#btnLogOut').on('click', function() {
+        layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
+            //do something
+            // console.log(123);
+            // 清空本地存储
+            localStorage.removeItem('token')
+
+            // 跳转到登录页面
+            location.href = '/login.html'
+            layer.close(index);
+        });
+    })
+
 })
 
 
@@ -23,6 +38,9 @@ function getUserInfo() {
                 return layui.layer.msg(res.message)
             }
             renderAvatar(res.data)
+
+            // 登录拦截
+            // complete
         }
     })
 }
