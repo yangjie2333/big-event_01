@@ -21,12 +21,12 @@ $(function() {
     $('#file').on('change', function() {
         // 获取上传图片
         // files属性是一个伪数组
-        var file = this.files[0]
+        var file = this.files
         if (file === undefined) {
             return layui.layer.msg('请选择图片!')
         }
         // console.log(file);
-        var imgUrl = URL.createObjectURL(file)
+        var imgUrl = URL.createObjectURL(file[0])
 
         $image
             .cropper('destroy') // 销毁旧的裁剪区域
