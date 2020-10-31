@@ -13,7 +13,7 @@ $(function() {
             type: 'get',
             url: '/my/article/' + id,
             success: function(res) {
-                // console.log(res);
+                console.log(res);
                 if (res.status !== 0) {
                     return layer.msg(res.message)
                 }
@@ -26,7 +26,7 @@ $(function() {
                 }
 
                 var imgUrl = baseUrl + res.data.cover_img
-                    // console.log(imgUrl);
+                console.log(imgUrl);
                 $image
                     .cropper('destroy') // 销毁旧的裁剪区域
                     .attr('src', imgUrl) // 重新设置图片路径
